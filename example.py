@@ -7,13 +7,13 @@ import paramiko
 from paramiko import SSHClient
 from scp import SCPClient
 
-import heappeac as sc
+import heappeac as hp
 
 username = ""
 password = ""
 
-configuration = sc.Configuration()
-api_instance = sc.ApiClient(configuration)
+configuration = hp.Configuration()
+api_instance = hp.ApiClient(configuration)
 
 print(f"Authenticating {username}...")
 cred = {
@@ -25,7 +25,7 @@ cred = {
         }
     }
 }
-ulm = sc.api.UserAndLimitationManagementApi(api_instance)
+ulm = hp.api.UserAndLimitationManagementApi(api_instance)
 r = ulm.authenticate_user_password(**cred)
 session_code = json.loads(r.data)
 print(f"Session code: {session_code}")
@@ -35,14 +35,14 @@ print("Fetching cluster info...")
 lac_body = {
     "_preload_content": False,
 }
-ci = sc.api.ClusterInformationApi(api_instance)
+ci = hp.api.ClusterInformationApi(api_instance)
 r = ci.list_available_clusters(**lac_body)
 r_data = json.loads(r.data)
 print(r_data)
 
 
 print("Creating job template...")
-jm = sc.api.JobManagementApi(api_instance)
+jm = hp.api.JobManagementApi(api_instance)
 job_spec_body = {
     "_preload_content": False,
     "body": {
@@ -123,7 +123,7 @@ while True:
 
 
 print("Fetching logs...")
-ft = sc.api.FileTransferApi(api_instance)
+ft = hp.api.FileTransferApi(api_instance)
 ft_body = {
     "_preload_content": False,
     "body": {
@@ -159,7 +159,7 @@ print(", ".join(filenames) + " fetched")
 
 
 print("Fetching resource usage report...")
-jr = sc.api.JobReportingApi(api_instance)
+jr = hp.api.JobReportingApi(api_instance)
 rur_body = {
     "_preload_content": False,
     "body": {
