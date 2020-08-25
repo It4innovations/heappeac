@@ -1,7 +1,13 @@
-import heappeac as sc
 import json
+import os
 import time
+from io import StringIO
 
+import paramiko
+from paramiko import SSHClient
+from scp import SCPClient
+
+import heappeac as sc
 
 username = ""
 password = ""
@@ -60,7 +66,6 @@ job_spec_body = {
                     "standardErrorFile": "stderr",
                     "progressFile": "stdprog",
                     "logFile": "stdlog",
-                    "clusterTaskSubdirectory": "string",
                     "commandTemplateId": 2,
                     "environmentVariables": [],
                     "dependsOn": [],
@@ -115,3 +120,53 @@ while True:
         break
     print(f"Waiting for job {job_id} to finish... current state: {state}")
     time.sleep(5)
+
+
+print("Fetching logs...")
+ft = sc.api.FileTransferApi(api_instance)
+ft_body = {
+    "_preload_content": False,
+    "body": {
+        "submittedJobInfoId": job_id,
+        "sessionCode": session_code
+    }
+}
+r = ft.get_file_transfer_method(**ft_body)
+r_data = json.loads(r.data)
+
+ssh = SSHClient()
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+ssh_username = r_data["credentials"]["username"]
+pkey_file = StringIO(r_data["credentials"]["privateKey"])
+pkey = paramiko.rsakey.RSAKey.from_private_key(pkey_file)
+ssh.connect(r_data["serverHostname"], username=ssh_username, pkey=pkey)
+base_path = r_data["sharedBasepath"]
+filenames = ["stdout", "stderr"]
+with SCPClient(ssh.get_transport()) as scp:
+    [scp.get(os.path.join(base_path, fn), fn) for fn in filenames]
+
+ft_body = {
+    "_preload_content": False,
+    "body": {
+        "submittedJobInfoId": job_id,
+        "usedTransferMethod": r_data,
+        "sessionCode": session_code
+    }
+}
+r = ft.end_file_transfer(**ft_body)
+r_data = json.loads(r.data)
+print(", ".join(filenames) + " fetched")
+
+
+print("Fetching resource usage report...")
+jr = sc.api.JobReportingApi(api_instance)
+rur_body = {
+    "_preload_content": False,
+    "body": {
+        "JobId": job_id,
+        "sessionCode": session_code
+    }
+}
+r = jr.get_resource_usage_report_for_job(**rur_body)
+r_data = json.loads(r.data)
+print("Done.")
