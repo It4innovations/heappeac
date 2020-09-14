@@ -1,0 +1,4 @@
+paramiko
+scp
+urllib3
+certifi
