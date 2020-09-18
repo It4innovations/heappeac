@@ -186,3 +186,5 @@ print("Done.")
 
 This project has received funding from the programme
 "Support for Science and Research in the Moravian-Silesian Region" (RRC/10/2017).
+
+![MSK Logo](docs/imgs/logo_msk.png?raw=true)
