@@ -6,7 +6,7 @@ with open("requirements.txt") as reqs:
 
 
 setup(name="heappeac",
-      version="0.1",
+      version="0.2",
       description="HEAppE API Python client",
       long_description="",
       url="",
