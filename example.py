@@ -2,6 +2,7 @@ import json
 import os
 import time
 from io import StringIO
+from pathlib import Path
 
 import paramiko
 from paramiko import SSHClient
@@ -147,6 +148,12 @@ ft_body = {
 r = ft.heappe_file_transfer_get_file_transfer_method_post(**ft_body)
 r_data = json.loads(r.data)
 
+r = ft.heappe_file_transfer_list_changed_files_for_job_post(**ft_body)
+filenames = [os.path.normpath(path) for path in json.loads(r.data)]
+
+print(f"Files changed during job execution: {filenames}")
+
+print("Fetching the files...")
 ssh = SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh_username = r_data["Credentials"]["UserName"]
@@ -154,11 +161,10 @@ pkey_file = StringIO(r_data["Credentials"]["PrivateKey"])
 pkey = paramiko.rsakey.RSAKey.from_private_key(pkey_file)
 ssh.connect(r_data["ServerHostname"], username=ssh_username, pkey=pkey)
 base_path = r_data["SharedBasepath"]
-filenames = ["stdout", "stderr"]
 with SCPClient(ssh.get_transport()) as scp:
-    for task in tasks:
-        task_id = str(task["Id"])
-        [scp.get(os.path.join(base_path, task_id, fn), f"{fn}_task{task_id}") for fn in filenames]
+    for fn in filenames:
+        Path(os.path.dirname(fn)).mkdir(parents=True, exist_ok=True)
+        scp.get(os.path.join(base_path, fn), fn)
 
 ft_body = {
     "_preload_content": False,
@@ -185,3 +191,16 @@ rur_body = {
 r = jr.heappe_job_reporting_get_resource_usage_report_for_job_post(**rur_body)
 r_data = json.loads(r.data)
 print("Done.")
+
+# Remove job after execution on HPC Cluster
+print(f"Removing job {job_id}...")
+ft_body = {
+    "_preload_content": False,
+    "body": {
+        "SubmittedJobInfoId": job_id,
+        "SessionCode": session_code
+    }
+}
+r = jm.heappe_job_management_delete_job_post(**ft_body)
+r_data = json.loads(r.data)
+print(r_data)
