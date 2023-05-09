@@ -6,12 +6,12 @@ with open("requirements.txt") as reqs:
 
 
 setup(name="heappeac",
-      version="0.2",
+      version="4.0",
       description="HEAppE API Python client",
       long_description="",
       url="",
-      author="Vojtech Cima",
-      author_email="cima.vojtech@gmail.com",
+      author="IT4I",
+      author_email="support.heappe@it4i.cz",
       license="MIT",
       packages=find_packages(),
       install_requires=requirements)
