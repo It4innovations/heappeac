@@ -12,7 +12,7 @@ import heappeac as hp
 
 configuration = hp.Configuration()
 configuration.host = ""
-project = ""
+projectIdentificator = ""
 username = ""
 password = ""
 api_instance = hp.ApiClient(configuration)
@@ -54,7 +54,7 @@ lproj_body = {
 
 r = ulmEndpoint.heappe_user_and_limitation_management_projects_for_current_user_get(**lproj_body)
 r_data = json.loads(r.data)
-project = next(f["Project"] for f in r_data if f["Project"]["AccountingString"] == project)
+project = next(f["Project"] for f in r_data if f["Project"]["AccountingString"] == projectIdentificator)
 print(json.dumps(project, indent = 3))
 
 
@@ -159,8 +159,14 @@ while True:
     r = jmEndpoint.heappe_job_management_current_info_for_job_get(**gcji_body)
     r_data = json.loads(r.data)
     state = r_data["State"]
-    if state > 8:
-        print(f"The job has finished with state {state}")
+    if r_data["State"] == 16:
+        print(f"The job has finished.")
+        break
+    if r_data["State"] == 32:
+        print(f"The job has failed.")
+        break
+    if r_data["State"] == 64:
+        print(f"The job has canceled.")
         break
     print(f"Waiting for job {job_id} to finish... current state: {state}")
     time.sleep(30)
@@ -179,7 +185,6 @@ ft_body = {
 ftEndpoint = hp.FileTransferApi(api_instance)
 r = ftEndpoint.heappe_file_transfer_request_file_transfer_post(**ft_body)
 jobtransfer = json.loads(r.data)
-#print(jobtransfer)
 
 lchjf_body = {
     "_preload_content": False,
@@ -210,10 +215,12 @@ match jobtransfer["FileTransferCipherType"]:
 
 ssh.connect(jobtransfer["ServerHostname"], username=jobtransfer["Credentials"]["Username"], pkey=pkey)
 base_path = jobtransfer["SharedBasepath"]
+
 with SCPClient(ssh.get_transport()) as scp:
     for fn in producedFiles:
-        Path(os.path.dirname(f"data_transfer/output/{job_id}/{fn}")).mkdir(parents=True, exist_ok=True)
-        scp.get(os.path.join(base_path, fn), f"data_transfer/output/{job_id}/{fn}")
+        specpath = fn[1:]
+        Path(os.path.dirname(f"data_transfer/output/{job_id}/{specpath}")).mkdir(parents=True, exist_ok=True)
+        scp.get(os.path.join(base_path, specpath).replace("\\","/"), f"data_transfer/output/{job_id}/{specpath}")
 ssh.close()
 
 ft_body = {
