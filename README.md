@@ -59,7 +59,7 @@ print(json.dumps(r_data, indent = 3))
 print("\nFetching available computational projects...")
 lproj_body = {
     "_preload_content": False,
-    "session_code": session_code
+    "SessionCode": session_code
 }
 
 r = ulmEndpoint.heappe_user_and_limitation_management_projects_for_current_user_get(**lproj_body)
@@ -161,8 +161,8 @@ r_data = json.loads(r.data)
 print(f"\nWaiting for job {job_id} to finish...")
 gcji_body = {
     "_preload_content": False,
-    "session_code": session_code,
-    "submitted_job_info_id": job_id
+    "SubmittedJobInfoId": job_id,
+    "SessionCode": session_code
 }
 
 while True:
@@ -198,8 +198,8 @@ jobtransfer = json.loads(r.data)
 
 lchjf_body = {
     "_preload_content": False,
-    "session_code": session_code,
-    "submitted_job_info_id": job_id
+    "SessionCode": session_code,
+    "SubmittedJobInfoId": job_id
 }
 
 r = ftEndpoint.heappe_file_transfer_list_changed_files_for_job_get(**lchjf_body)
@@ -242,6 +242,7 @@ ft_body = {
     }
 }
 
+ftEndpoint.heappe_file_transfer_download_file_from_cluster_post
 r = ftEndpoint.heappe_file_transfer_close_file_transfer_post(**ft_body)
 r_data = json.loads(r.data)
 print(", ".join(producedFiles) + " fetched")
@@ -250,8 +251,8 @@ print(", ".join(producedFiles) + " fetched")
 print("\nFetching resource usage report...")
 rur_body = {
     "_preload_content": False,
-    "session_code": session_code,
-    "job_id": job_id
+    "SessionCode": session_code,
+    "JobId": job_id
 }
 
 jrEndpoint = hp.JobReportingApi(api_instance)
@@ -273,6 +274,7 @@ ft_body = {
 r = jmEndpoint.heappe_job_management_delete_job_delete(**ft_body)
 r_data = json.loads(r.data)
 print(r_data)
+
 
 ```
 
