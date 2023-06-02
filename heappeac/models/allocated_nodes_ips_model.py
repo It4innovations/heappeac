@@ -28,24 +28,24 @@ class AllocatedNodesIPsModel(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'session_code': 'str',
-        'submitted_task_info_id': 'int'
+        'SessionCode': 'str',
+        'SubmittedTaskInfoId': 'int'
     }
 
     attribute_map = {
-        'session_code': 'SessionCode',
-        'submitted_task_info_id': 'SubmittedTaskInfoId'
+        'SessionCode': 'SessionCode',
+        'SubmittedTaskInfoId': 'SubmittedTaskInfoId'
     }
 
-    def __init__(self, session_code=None, submitted_task_info_id=None):  # noqa: E501
+    def __init__(self, SessionCode=None, SubmittedTaskInfoId=None):  # noqa: E501
         """AllocatedNodesIPsModel - a model defined in Swagger"""  # noqa: E501
-        self._session_code = None
-        self._submitted_task_info_id = None
+        self.SessionCode = None
+        self.SubmittedTaskInfoId = None
         self.discriminator = None
-        if session_code is not None:
-            self.session_code = session_code
-        if submitted_task_info_id is not None:
-            self.submitted_task_info_id = submitted_task_info_id
+        if SessionCode is not None:
+            self.SessionCode = SessionCode
+        if SubmittedTaskInfoId is not None:
+            self.SubmittedTaskInfoId = SubmittedTaskInfoId
 
     @property
     def session_code(self):
@@ -69,14 +69,14 @@ class AllocatedNodesIPsModel(object):
         self._session_code = session_code
 
     @property
-    def submitted_task_info_id(self):
+    def SubmittedTaskInfoId(self):
         """Gets the submitted_task_info_id of this AllocatedNodesIPsModel.  # noqa: E501
 
 
         :return: The submitted_task_info_id of this AllocatedNodesIPsModel.  # noqa: E501
         :rtype: int
         """
-        return self._submitted_task_info_id
+        return self.SubmittedTaskInfoId
 
     @submitted_task_info_id.setter
     def submitted_task_info_id(self, submitted_task_info_id):
