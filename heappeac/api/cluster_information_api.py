@@ -41,8 +41,8 @@ class ClusterInformationApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code: Session code
-        :param int cluster_node_id: ClusterNode ID
+        :param str SessionCode: Session code
+        :param int ClusterNodeId: ClusterNode ID
         :return: ClusterNodeUsageExt
                  If the method is called asynchronously,
                  returns the request thread.
@@ -63,14 +63,14 @@ class ClusterInformationApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code: Session code
-        :param int cluster_node_id: ClusterNode ID
+        :param str SessionCode: Session code
+        :param int ClusterNodeId: ClusterNode ID
         :return: ClusterNodeUsageExt
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['session_code', 'cluster_node_id']  # noqa: E501
+        all_params = ['SessionCode', 'ClusterNodeId']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -91,10 +91,10 @@ class ClusterInformationApi(object):
         path_params = {}
 
         query_params = []
-        if 'session_code' in params:
-            query_params.append(('sessionCode', params['session_code']))  # noqa: E501
-        if 'cluster_node_id' in params:
-            query_params.append(('clusterNodeId', params['cluster_node_id']))  # noqa: E501
+        if 'SessionCode' in params:
+            query_params.append(('SessionCode', params['SessionCode']))  # noqa: E501
+        if 'ClusterNodeId' in params:
+            query_params.append(('ClusterNodeId', params['ClusterNodeId']))  # noqa: E501
 
         header_params = {}
 

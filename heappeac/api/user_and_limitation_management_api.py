@@ -413,7 +413,7 @@ class UserAndLimitationManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code:
+        :param str SessionCode:
         :return: list[ProjectResourceUsageExt]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -434,13 +434,13 @@ class UserAndLimitationManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code:
+        :param str SessionCode:
         :return: list[ProjectResourceUsageExt]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['session_code']  # noqa: E501
+        all_params = ['SessionCode']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -461,8 +461,8 @@ class UserAndLimitationManagementApi(object):
         path_params = {}
 
         query_params = []
-        if 'session_code' in params:
-            query_params.append(('sessionCode', params['session_code']))  # noqa: E501
+        if 'SessionCode' in params:
+            query_params.append(('SessionCode', params['SessionCode']))  # noqa: E501
 
         header_params = {}
 
@@ -595,7 +595,7 @@ class UserAndLimitationManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code:
+        :param str SessionCode:
         :return: list[ProjectReferenceExt]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -616,13 +616,13 @@ class UserAndLimitationManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code:
+        :param str SessionCode:
         :return: list[ProjectReferenceExt]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['session_code']  # noqa: E501
+        all_params = ['SessionCode']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -643,8 +643,8 @@ class UserAndLimitationManagementApi(object):
         path_params = {}
 
         query_params = []
-        if 'session_code' in params:
-            query_params.append(('sessionCode', params['session_code']))  # noqa: E501
+        if 'SessionCode' in params:
+            query_params.append(('SessionCode', params['SessionCode']))  # noqa: E501
 
         header_params = {}
 

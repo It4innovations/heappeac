@@ -320,8 +320,8 @@ class FileTransferApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code: Session code
-        :param int submitted_job_info_id: SubmittedJobInfo ID
+        :param str SessionCode: Session code
+        :param int SubmittedJobInfoId: SubmittedJobInfo ID
         :return: list[FileInformationExt]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -342,14 +342,14 @@ class FileTransferApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code: Session code
-        :param int submitted_job_info_id: SubmittedJobInfo ID
+        :param str SessionCode: Session code
+        :param int SubmittedJobInfoId: SubmittedJobInfo ID
         :return: list[FileInformationExt]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['session_code', 'submitted_job_info_id']  # noqa: E501
+        all_params = ['SessionCode', 'SubmittedJobInfoId']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -370,10 +370,10 @@ class FileTransferApi(object):
         path_params = {}
 
         query_params = []
-        if 'session_code' in params:
-            query_params.append(('sessionCode', params['session_code']))  # noqa: E501
-        if 'submitted_job_info_id' in params:
-            query_params.append(('submittedJobInfoId', params['submitted_job_info_id']))  # noqa: E501
+        if 'SessionCode' in params:
+            query_params.append(('SessionCode', params['SessionCode']))  # noqa: E501
+        if 'SubmittedJobInfoId' in params:
+            query_params.append(('SubmittedJobInfoId', params['SubmittedJobInfoId']))  # noqa: E501
 
         header_params = {}
 

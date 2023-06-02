@@ -41,8 +41,8 @@ class JobManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code: Session code
-        :param int submitted_task_info_id: SubmittedTaskInfo ID
+        :param str SessionCode: Session code
+        :param int SubmittedTaskInfoId: SubmittedTaskInfo ID
         :return: list[str]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -63,14 +63,14 @@ class JobManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code: Session code
-        :param int submitted_task_info_id: SubmittedTaskInfo ID
+        :param str SessionCode: Session code
+        :param int SubmittedTaskInfoId: SubmittedTaskInfo ID
         :return: list[str]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['session_code', 'submitted_task_info_id']  # noqa: E501
+        all_params = ['SessionCode', 'SubmittedTaskInfoId']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -91,10 +91,10 @@ class JobManagementApi(object):
         path_params = {}
 
         query_params = []
-        if 'session_code' in params:
-            query_params.append(('sessionCode', params['session_code']))  # noqa: E501
-        if 'submitted_task_info_id' in params:
-            query_params.append(('submittedTaskInfoId', params['submitted_task_info_id']))  # noqa: E501
+        if 'SessionCode' in params:
+            query_params.append(('SessionCode', params['SessionCode']))  # noqa: E501
+        if 'SubmittedTaskInfoId' in params:
+            query_params.append(('SubmittedTaskInfoId', params['SubmittedTaskInfoId']))  # noqa: E501
 
         header_params = {}
 
@@ -599,8 +599,8 @@ class JobManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code: Session code
-        :param int submitted_job_info_id: SubmittedJobInfo ID
+        :param str SessionCode: Session code
+        :param int SubmittedJobInfoId: SubmittedJobInfo ID
         :return: SubmittedJobInfoExt
                  If the method is called asynchronously,
                  returns the request thread.
@@ -621,14 +621,14 @@ class JobManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code: Session code
-        :param int submitted_job_info_id: SubmittedJobInfo ID
+        :param str SessionCode: Session code
+        :param int SubmittedJobInfoId: SubmittedJobInfo ID
         :return: SubmittedJobInfoExt
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['session_code', 'submitted_job_info_id']  # noqa: E501
+        all_params = ['SessionCode', 'SubmittedJobInfoId']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -649,10 +649,10 @@ class JobManagementApi(object):
         path_params = {}
 
         query_params = []
-        if 'session_code' in params:
-            query_params.append(('sessionCode', params['session_code']))  # noqa: E501
-        if 'submitted_job_info_id' in params:
-            query_params.append(('submittedJobInfoId', params['submitted_job_info_id']))  # noqa: E501
+        if 'SessionCode' in params:
+            query_params.append(('SessionCode', params['SessionCode']))  # noqa: E501
+        if 'SubmittedJobInfoId' in params:
+            query_params.append(('SubmittedJobInfoId', params['SubmittedJobInfoId']))  # noqa: E501
 
         header_params = {}
 
@@ -1064,7 +1064,7 @@ class JobManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code: Session code
+        :param str SessionCode: Session code
         :return: list[SubmittedJobInfoExt]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1085,13 +1085,13 @@ class JobManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code: Session code
+        :param str SessionCode: Session code
         :return: list[SubmittedJobInfoExt]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['session_code']  # noqa: E501
+        all_params = ['SessionCode']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1112,8 +1112,8 @@ class JobManagementApi(object):
         path_params = {}
 
         query_params = []
-        if 'session_code' in params:
-            query_params.append(('sessionCode', params['session_code']))  # noqa: E501
+        if 'SessionCode' in params:
+            query_params.append(('SessionCode', params['SessionCode']))  # noqa: E501
 
         header_params = {}
 

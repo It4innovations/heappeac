@@ -41,9 +41,9 @@ class JobReportingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param datetime start_time:
-        :param datetime end_time:
-        :param str session_code:
+        :param datetime StartTime:
+        :param datetime EndTime:
+        :param str SessionCode:
         :return: list[UserGroupReportExt]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -64,15 +64,15 @@ class JobReportingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param datetime start_time:
-        :param datetime end_time:
-        :param str session_code:
+        :param datetime StartTime:
+        :param datetime EndTime:
+        :param str SessionCode:
         :return: list[UserGroupReportExt]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['start_time', 'end_time', 'session_code']  # noqa: E501
+        all_params = ['StartTime', 'EndTime', 'SessionCode']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -93,12 +93,12 @@ class JobReportingApi(object):
         path_params = {}
 
         query_params = []
-        if 'start_time' in params:
-            query_params.append(('startTime', params['start_time']))  # noqa: E501
-        if 'end_time' in params:
-            query_params.append(('endTime', params['end_time']))  # noqa: E501
-        if 'session_code' in params:
-            query_params.append(('sessionCode', params['session_code']))  # noqa: E501
+        if 'StartTime' in params:
+            query_params.append(('StartTime', params['StartTime']))  # noqa: E501
+        if 'EndTime' in params:
+            query_params.append(('EndTime', params['EndTime']))  # noqa: E501
+        if 'SessionCode' in params:
+            query_params.append(('SessionCode', params['SessionCode']))  # noqa: E501
 
         header_params = {}
 
@@ -138,7 +138,7 @@ class JobReportingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code: Session code
+        :param str SessionCode: Session code
         :return: list[UserGroupDetailedReportExt]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -159,13 +159,13 @@ class JobReportingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code: Session code
+        :param str SessionCode: Session code
         :return: list[UserGroupDetailedReportExt]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['session_code']  # noqa: E501
+        all_params = ['SessionCode']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -186,8 +186,8 @@ class JobReportingApi(object):
         path_params = {}
 
         query_params = []
-        if 'session_code' in params:
-            query_params.append(('sessionCode', params['session_code']))  # noqa: E501
+        if 'SessionCode' in params:
+            query_params.append(('SessionCode', params['SessionCode']))  # noqa: E501
 
         header_params = {}
 
@@ -227,7 +227,7 @@ class JobReportingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code: Session code
+        :param str SessionCode: Session code
         :return: list[JobStateAggregationReportExt]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -248,13 +248,13 @@ class JobReportingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code: Session code
+        :param str SessionCode: Session code
         :return: list[JobStateAggregationReportExt]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['session_code']  # noqa: E501
+        all_params = ['SessionCode']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -275,8 +275,8 @@ class JobReportingApi(object):
         path_params = {}
 
         query_params = []
-        if 'session_code' in params:
-            query_params.append(('sessionCode', params['session_code']))  # noqa: E501
+        if 'SessionCode' in params:
+            query_params.append(('SessionCode', params['SessionCode']))  # noqa: E501
 
         header_params = {}
 
@@ -316,7 +316,7 @@ class JobReportingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code: Session code
+        :param str SessionCode: Session code
         :return: UserGroupListReportExt
                  If the method is called asynchronously,
                  returns the request thread.
@@ -337,13 +337,13 @@ class JobReportingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code: Session code
+        :param str SessionCode: Session code
         :return: UserGroupListReportExt
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['session_code']  # noqa: E501
+        all_params = ['SessionCode']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -364,8 +364,8 @@ class JobReportingApi(object):
         path_params = {}
 
         query_params = []
-        if 'session_code' in params:
-            query_params.append(('sessionCode', params['session_code']))  # noqa: E501
+        if 'SessionCode' in params:
+            query_params.append(('SessionCode', params['SessionCode']))  # noqa: E501
 
         header_params = {}
 
@@ -405,8 +405,8 @@ class JobReportingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code: Session code
-        :param int job_id: Job ID
+        :param str SessionCode: Session code
+        :param int JobId: Job ID
         :return: ProjectReportExt
                  If the method is called asynchronously,
                  returns the request thread.
@@ -427,14 +427,14 @@ class JobReportingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_code: Session code
-        :param int job_id: Job ID
+        :param str SessionCode: Session code
+        :param int JobId: Job ID
         :return: ProjectReportExt
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['session_code', 'job_id']  # noqa: E501
+        all_params = ['SessionCode', 'JobId']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -455,10 +455,10 @@ class JobReportingApi(object):
         path_params = {}
 
         query_params = []
-        if 'session_code' in params:
-            query_params.append(('sessionCode', params['session_code']))  # noqa: E501
-        if 'job_id' in params:
-            query_params.append(('jobId', params['job_id']))  # noqa: E501
+        if 'SessionCode' in params:
+            query_params.append(('SessionCode', params['SessionCode']))  # noqa: E501
+        if 'JobId' in params:
+            query_params.append(('JobId', params['JobId']))  # noqa: E501
 
         header_params = {}
 
@@ -498,10 +498,10 @@ class JobReportingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int group_id: Group ID
-        :param datetime start_time: StartTime
-        :param datetime end_time: EndTime
-        :param str session_code: SessionCode
+        :param int GroupId: Group ID
+        :param datetime StartTime: StartTime
+        :param datetime EndTime: EndTime
+        :param str SessionCode: SessionCode
         :return: UserGroupReportExt
                  If the method is called asynchronously,
                  returns the request thread.
@@ -522,16 +522,16 @@ class JobReportingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int group_id: Group ID
-        :param datetime start_time: StartTime
-        :param datetime end_time: EndTime
-        :param str session_code: SessionCode
+        :param int GroupId: Group ID
+        :param datetime StartTime: StartTime
+        :param datetime EndTime: EndTime
+        :param str SessionCode: SessionCode
         :return: UserGroupReportExt
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['group_id', 'start_time', 'end_time', 'session_code']  # noqa: E501
+        all_params = ['GroupId', 'StartTime', 'EndTime', 'SessionCode']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -552,14 +552,14 @@ class JobReportingApi(object):
         path_params = {}
 
         query_params = []
-        if 'group_id' in params:
-            query_params.append(('groupId', params['group_id']))  # noqa: E501
-        if 'start_time' in params:
-            query_params.append(('startTime', params['start_time']))  # noqa: E501
-        if 'end_time' in params:
-            query_params.append(('endTime', params['end_time']))  # noqa: E501
-        if 'session_code' in params:
-            query_params.append(('sessionCode', params['session_code']))  # noqa: E501
+        if 'GroupId' in params:
+            query_params.append(('GroupId', params['GroupId']))  # noqa: E501
+        if 'StartTime' in params:
+            query_params.append(('StartTime', params['StartTime']))  # noqa: E501
+        if 'EndTime' in params:
+            query_params.append(('EndTime', params['EndTime']))  # noqa: E501
+        if 'SessionCode' in params:
+            query_params.append(('SessionCode', params['SessionCode']))  # noqa: E501
 
         header_params = {}
 
@@ -599,10 +599,10 @@ class JobReportingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int user_id: User ID
-        :param datetime start_time: StartTime
-        :param datetime end_time: EndTime
-        :param str session_code: SessionCode
+        :param int UserId: User ID
+        :param datetime StartTime: StartTime
+        :param datetime EndTime: EndTime
+        :param str SessionCode: SessionCode
         :return: list[UserGroupReportExt]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -623,16 +623,16 @@ class JobReportingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int user_id: User ID
-        :param datetime start_time: StartTime
-        :param datetime end_time: EndTime
-        :param str session_code: SessionCode
+        :param int UserId: User ID
+        :param datetime StartTime: StartTime
+        :param datetime EndTime: EndTime
+        :param str SessionCode: SessionCode
         :return: list[UserGroupReportExt]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['user_id', 'start_time', 'end_time', 'session_code']  # noqa: E501
+        all_params = ['UserId', 'StartTime', 'EndTime', 'SessionCode']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -653,14 +653,14 @@ class JobReportingApi(object):
         path_params = {}
 
         query_params = []
-        if 'user_id' in params:
-            query_params.append(('userId', params['user_id']))  # noqa: E501
-        if 'start_time' in params:
-            query_params.append(('startTime', params['start_time']))  # noqa: E501
-        if 'end_time' in params:
-            query_params.append(('endTime', params['end_time']))  # noqa: E501
-        if 'session_code' in params:
-            query_params.append(('sessionCode', params['session_code']))  # noqa: E501
+        if 'UserId' in params:
+            query_params.append(('UserId', params['UserId']))  # noqa: E501
+        if 'StartTime' in params:
+            query_params.append(('StartTime', params['StartTime']))  # noqa: E501
+        if 'EndTime' in params:
+            query_params.append(('EndTime', params['EndTime']))  # noqa: E501
+        if 'SessionCode' in params:
+            query_params.append(('SessionCode', params['SessionCode']))  # noqa: E501
 
         header_params = {}
 
