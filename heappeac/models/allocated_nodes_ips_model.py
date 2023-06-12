@@ -78,8 +78,8 @@ class AllocatedNodesIPsModel(object):
         """
         return self.SubmittedTaskInfoId
 
-    @submitted_task_info_id.setter
-    def submitted_task_info_id(self, submitted_task_info_id):
+    @SubmittedTaskInfoId.setter
+    def SubmittedTaskInfoId(self, SubmittedTaskInfoId):
         """Sets the submitted_task_info_id of this AllocatedNodesIPsModel.
 
 
@@ -87,7 +87,7 @@ class AllocatedNodesIPsModel(object):
         :type: int
         """
 
-        self._submitted_task_info_id = submitted_task_info_id
+        self.SubmittedTaskInfoId = SubmittedTaskInfoId
 
     def to_dict(self):
         """Returns the model properties as a dict"""
