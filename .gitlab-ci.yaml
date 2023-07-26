@@ -1,0 +1,31 @@
+---
+image: python:3.10
+
+stages:
+  - build_publish
+
+before_script:
+  - python -V  # Print out python version for debugging
+  - apt-get update
+  - apt-get install -y curl
+  - curl -s https://deb.nodesource.com/setup_12.x | bash
+  - pip install  --upgrade awscli
+  - pip install GitPython
+  - pip install virtualenv
+  - virtualenv venv
+  - source venv/bin/activate
+
+
+
+build_and_publish:
+  stage: build_publish
+  script:
+    - python ./setup.py sdist bdist_wheel
+    - pip install twine
+    - TWINE_PASSWORD=${CI_JOB_TOKEN} TWINE_USERNAME=gitlab-ci-token python -m twine upload --skip-existing --repository-url ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi dist/*
+  artifacts:
+    paths:
+      - dist/*.whl
+    expire_in: 30 days
+  only:
+    - master
