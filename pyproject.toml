@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "heappeac"
+authors = [
+    {name = "IT4Innovations", email = "support.heappe@it4i.cz"}
+]
+description = "HEAppE API Python client"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["lexis", "HEAppE", "client", "python"]
+classifiers = [
+    "Programming Language :: Python :: 3"
+]
+license={ text = "MIT" }
+dependencies = [
+    "paramiko",
+    "scp",
+    "urllib3",
+    "certifi",
+    "six"
+]
+
+version = "4.0.0"
