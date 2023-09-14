@@ -8,7 +8,7 @@ before_script:
   - python -V  # Print out python version for debugging
   - apt-get update
   - apt-get install -y curl
-  - curl -s https://deb.nodesource.com/setup_12.x | bash
+  - curl -s https://deb.nodesource.com/setup_18.x | bash
   - pip install  --upgrade awscli
   - pip install GitPython
   - pip install virtualenv
