@@ -22,9 +22,9 @@ import tempfile
 import six
 from six.moves.urllib.parse import quote
 
-from heappeac.configuration import Configuration
-import heappeac.models
-from heappeac import rest
+from heappeac_v4.configuration import Configuration
+import heappeac_v4.models
+from heappeac_v4 import rest
 
 
 class ApiClient(object):

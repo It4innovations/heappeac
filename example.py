@@ -8,7 +8,7 @@ import paramiko
 from paramiko import SSHClient
 from scp import SCPClient
 
-import heappeac as hp
+import heappeac_v4 as hp
 
 configuration = hp.Configuration()
 configuration.host = ""
