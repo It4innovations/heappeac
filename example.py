@@ -96,7 +96,7 @@ job_spec_body = {
                     "StandardErrorFile": "stderr",
                     "ProgressFile": "stdprog",
                     "LogFile": "stdlog",
-                    "ClusterNodeTypeId": 8,
+                    "ClusterNodeTypeId": 18,
                     "CommandTemplateId": 3,
                     #"TaskParalizationParameters": [
                         #{
@@ -201,7 +201,7 @@ print("\nFetching the files...")
 ssh = SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 pkey_file = StringIO(jobtransfer["Credentials"]["PrivateKey"])
-match jobtransfer["FileTransferCipherType"]:
+match jobtransfer["Credentials"]["CipherType"]:
     case 1:
         pkey = paramiko.RSAKey.from_private_key(pkey_file)
     case 2:
