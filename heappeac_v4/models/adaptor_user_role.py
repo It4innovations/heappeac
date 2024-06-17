@@ -31,44 +31,39 @@ class AdaptorUserRole(object):
         'id': 'int',
         'name': 'str',
         'description': 'str',
-        'parent_role_id': 'int',
-        'parent_role': 'AdaptorUserRole',
         'adaptor_user_user_group_roles': 'list[AdaptorUserUserGroupRole]',
-        'users': 'list[AdaptorUser]'
+        'role_type': 'AdaptorUserRoleType',
+        'contained_role_types': 'list[AdaptorUserRoleType]'
     }
 
     attribute_map = {
         'id': 'Id',
         'name': 'Name',
         'description': 'Description',
-        'parent_role_id': 'ParentRoleId',
-        'parent_role': 'ParentRole',
         'adaptor_user_user_group_roles': 'AdaptorUserUserGroupRoles',
-        'users': 'Users'
+        'role_type': 'RoleType',
+        'contained_role_types': 'ContainedRoleTypes'
     }
 
-    def __init__(self, id=None, name=None, description=None, parent_role_id=None, parent_role=None, adaptor_user_user_group_roles=None, users=None):  # noqa: E501
+    def __init__(self, id=None, name=None, description=None, adaptor_user_user_group_roles=None, role_type=None, contained_role_types=None):  # noqa: E501
         """AdaptorUserRole - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None
         self._description = None
-        self._parent_role_id = None
-        self._parent_role = None
         self._adaptor_user_user_group_roles = None
-        self._users = None
+        self._role_type = None
+        self._contained_role_types = None
         self.discriminator = None
         if id is not None:
             self.id = id
         self.name = name
         self.description = description
-        if parent_role_id is not None:
-            self.parent_role_id = parent_role_id
-        if parent_role is not None:
-            self.parent_role = parent_role
         if adaptor_user_user_group_roles is not None:
             self.adaptor_user_user_group_roles = adaptor_user_user_group_roles
-        if users is not None:
-            self.users = users
+        if role_type is not None:
+            self.role_type = role_type
+        if contained_role_types is not None:
+            self.contained_role_types = contained_role_types
 
     @property
     def id(self):
@@ -138,48 +133,6 @@ class AdaptorUserRole(object):
         self._description = description
 
     @property
-    def parent_role_id(self):
-        """Gets the parent_role_id of this AdaptorUserRole.  # noqa: E501
-
-
-        :return: The parent_role_id of this AdaptorUserRole.  # noqa: E501
-        :rtype: int
-        """
-        return self._parent_role_id
-
-    @parent_role_id.setter
-    def parent_role_id(self, parent_role_id):
-        """Sets the parent_role_id of this AdaptorUserRole.
-
-
-        :param parent_role_id: The parent_role_id of this AdaptorUserRole.  # noqa: E501
-        :type: int
-        """
-
-        self._parent_role_id = parent_role_id
-
-    @property
-    def parent_role(self):
-        """Gets the parent_role of this AdaptorUserRole.  # noqa: E501
-
-
-        :return: The parent_role of this AdaptorUserRole.  # noqa: E501
-        :rtype: AdaptorUserRole
-        """
-        return self._parent_role
-
-    @parent_role.setter
-    def parent_role(self, parent_role):
-        """Sets the parent_role of this AdaptorUserRole.
-
-
-        :param parent_role: The parent_role of this AdaptorUserRole.  # noqa: E501
-        :type: AdaptorUserRole
-        """
-
-        self._parent_role = parent_role
-
-    @property
     def adaptor_user_user_group_roles(self):
         """Gets the adaptor_user_user_group_roles of this AdaptorUserRole.  # noqa: E501
 
@@ -201,25 +154,46 @@ class AdaptorUserRole(object):
         self._adaptor_user_user_group_roles = adaptor_user_user_group_roles
 
     @property
-    def users(self):
-        """Gets the users of this AdaptorUserRole.  # noqa: E501
+    def role_type(self):
+        """Gets the role_type of this AdaptorUserRole.  # noqa: E501
 
 
-        :return: The users of this AdaptorUserRole.  # noqa: E501
-        :rtype: list[AdaptorUser]
+        :return: The role_type of this AdaptorUserRole.  # noqa: E501
+        :rtype: AdaptorUserRoleType
         """
-        return self._users
+        return self._role_type
 
-    @users.setter
-    def users(self, users):
-        """Sets the users of this AdaptorUserRole.
+    @role_type.setter
+    def role_type(self, role_type):
+        """Sets the role_type of this AdaptorUserRole.
 
 
-        :param users: The users of this AdaptorUserRole.  # noqa: E501
-        :type: list[AdaptorUser]
+        :param role_type: The role_type of this AdaptorUserRole.  # noqa: E501
+        :type: AdaptorUserRoleType
         """
 
-        self._users = users
+        self._role_type = role_type
+
+    @property
+    def contained_role_types(self):
+        """Gets the contained_role_types of this AdaptorUserRole.  # noqa: E501
+
+
+        :return: The contained_role_types of this AdaptorUserRole.  # noqa: E501
+        :rtype: list[AdaptorUserRoleType]
+        """
+        return self._contained_role_types
+
+    @contained_role_types.setter
+    def contained_role_types(self, contained_role_types):
+        """Sets the contained_role_types of this AdaptorUserRole.
+
+
+        :param contained_role_types: The contained_role_types of this AdaptorUserRole.  # noqa: E501
+        :type: list[AdaptorUserRoleType]
+        """
+
+        self._contained_role_types = contained_role_types
 
     def to_dict(self):
         """Returns the model properties as a dict"""
