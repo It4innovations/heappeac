@@ -32,10 +32,10 @@ class ModifyProjectModel(object):
         'id': 'int',
         'name': 'str',
         'description': 'str',
-        'accounting_string': 'str',
         'start_date': 'datetime',
         'end_date': 'datetime',
-        'usage_type': 'UsageTypeExt'
+        'usage_type': 'UsageTypeExt',
+        'use_accounting_string_for_scheduler': 'bool'
     }
 
     attribute_map = {
@@ -43,22 +43,22 @@ class ModifyProjectModel(object):
         'id': 'Id',
         'name': 'Name',
         'description': 'Description',
-        'accounting_string': 'AccountingString',
         'start_date': 'StartDate',
         'end_date': 'EndDate',
-        'usage_type': 'UsageType'
+        'usage_type': 'UsageType',
+        'use_accounting_string_for_scheduler': 'UseAccountingStringForScheduler'
     }
 
-    def __init__(self, session_code=None, id=None, name=None, description=None, accounting_string=None, start_date=None, end_date=None, usage_type=None):  # noqa: E501
+    def __init__(self, session_code=None, id=None, name=None, description=None, start_date=None, end_date=None, usage_type=None, use_accounting_string_for_scheduler=None):  # noqa: E501
         """ModifyProjectModel - a model defined in Swagger"""  # noqa: E501
         self._session_code = None
         self._id = None
         self._name = None
         self._description = None
-        self._accounting_string = None
         self._start_date = None
         self._end_date = None
         self._usage_type = None
+        self._use_accounting_string_for_scheduler = None
         self.discriminator = None
         if session_code is not None:
             self.session_code = session_code
@@ -68,14 +68,14 @@ class ModifyProjectModel(object):
             self.name = name
         if description is not None:
             self.description = description
-        if accounting_string is not None:
-            self.accounting_string = accounting_string
         if start_date is not None:
             self.start_date = start_date
         if end_date is not None:
             self.end_date = end_date
         if usage_type is not None:
             self.usage_type = usage_type
+        if use_accounting_string_for_scheduler is not None:
+            self.use_accounting_string_for_scheduler = use_accounting_string_for_scheduler
 
     @property
     def session_code(self):
@@ -162,27 +162,6 @@ class ModifyProjectModel(object):
         self._description = description
 
     @property
-    def accounting_string(self):
-        """Gets the accounting_string of this ModifyProjectModel.  # noqa: E501
-
-
-        :return: The accounting_string of this ModifyProjectModel.  # noqa: E501
-        :rtype: str
-        """
-        return self._accounting_string
-
-    @accounting_string.setter
-    def accounting_string(self, accounting_string):
-        """Sets the accounting_string of this ModifyProjectModel.
-
-
-        :param accounting_string: The accounting_string of this ModifyProjectModel.  # noqa: E501
-        :type: str
-        """
-
-        self._accounting_string = accounting_string
-
-    @property
     def start_date(self):
         """Gets the start_date of this ModifyProjectModel.  # noqa: E501
 
@@ -244,6 +223,27 @@ class ModifyProjectModel(object):
         """
 
         self._usage_type = usage_type
+
+    @property
+    def use_accounting_string_for_scheduler(self):
+        """Gets the use_accounting_string_for_scheduler of this ModifyProjectModel.  # noqa: E501
+
+
+        :return: The use_accounting_string_for_scheduler of this ModifyProjectModel.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_accounting_string_for_scheduler
+
+    @use_accounting_string_for_scheduler.setter
+    def use_accounting_string_for_scheduler(self, use_accounting_string_for_scheduler):
+        """Sets the use_accounting_string_for_scheduler of this ModifyProjectModel.
+
+
+        :param use_accounting_string_for_scheduler: The use_accounting_string_for_scheduler of this ModifyProjectModel.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_accounting_string_for_scheduler = use_accounting_string_for_scheduler
 
     def to_dict(self):
         """Returns the model properties as a dict"""

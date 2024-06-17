@@ -37,6 +37,8 @@ class ClusterNodeType(object):
         'quality_of_service': 'str',
         'cluster_allocation_name': 'str',
         'max_walltime': 'int',
+        'max_nodes_per_user': 'int',
+        'max_nodes_per_job': 'int',
         'cluster_id': 'int',
         'cluster': 'Cluster',
         'file_transfer_method_id': 'int',
@@ -55,6 +57,8 @@ class ClusterNodeType(object):
         'quality_of_service': 'QualityOfService',
         'cluster_allocation_name': 'ClusterAllocationName',
         'max_walltime': 'MaxWalltime',
+        'max_nodes_per_user': 'MaxNodesPerUser',
+        'max_nodes_per_job': 'MaxNodesPerJob',
         'cluster_id': 'ClusterId',
         'cluster': 'Cluster',
         'file_transfer_method_id': 'FileTransferMethodId',
@@ -63,7 +67,7 @@ class ClusterNodeType(object):
         'possible_commands': 'PossibleCommands'
     }
 
-    def __init__(self, id=None, name=None, description=None, number_of_nodes=None, cores_per_node=None, queue=None, quality_of_service=None, cluster_allocation_name=None, max_walltime=None, cluster_id=None, cluster=None, file_transfer_method_id=None, file_transfer_method=None, requested_node_groups=None, possible_commands=None):  # noqa: E501
+    def __init__(self, id=None, name=None, description=None, number_of_nodes=None, cores_per_node=None, queue=None, quality_of_service=None, cluster_allocation_name=None, max_walltime=None, max_nodes_per_user=None, max_nodes_per_job=None, cluster_id=None, cluster=None, file_transfer_method_id=None, file_transfer_method=None, requested_node_groups=None, possible_commands=None):  # noqa: E501
         """ClusterNodeType - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None
@@ -74,6 +78,8 @@ class ClusterNodeType(object):
         self._quality_of_service = None
         self._cluster_allocation_name = None
         self._max_walltime = None
+        self._max_nodes_per_user = None
+        self._max_nodes_per_job = None
         self._cluster_id = None
         self._cluster = None
         self._file_transfer_method_id = None
@@ -97,6 +103,10 @@ class ClusterNodeType(object):
             self.cluster_allocation_name = cluster_allocation_name
         if max_walltime is not None:
             self.max_walltime = max_walltime
+        if max_nodes_per_user is not None:
+            self.max_nodes_per_user = max_nodes_per_user
+        if max_nodes_per_job is not None:
+            self.max_nodes_per_job = max_nodes_per_job
         if cluster_id is not None:
             self.cluster_id = cluster_id
         if cluster is not None:
@@ -302,6 +312,48 @@ class ClusterNodeType(object):
         """
 
         self._max_walltime = max_walltime
+
+    @property
+    def max_nodes_per_user(self):
+        """Gets the max_nodes_per_user of this ClusterNodeType.  # noqa: E501
+
+
+        :return: The max_nodes_per_user of this ClusterNodeType.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_nodes_per_user
+
+    @max_nodes_per_user.setter
+    def max_nodes_per_user(self, max_nodes_per_user):
+        """Sets the max_nodes_per_user of this ClusterNodeType.
+
+
+        :param max_nodes_per_user: The max_nodes_per_user of this ClusterNodeType.  # noqa: E501
+        :type: int
+        """
+
+        self._max_nodes_per_user = max_nodes_per_user
+
+    @property
+    def max_nodes_per_job(self):
+        """Gets the max_nodes_per_job of this ClusterNodeType.  # noqa: E501
+
+
+        :return: The max_nodes_per_job of this ClusterNodeType.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_nodes_per_job
+
+    @max_nodes_per_job.setter
+    def max_nodes_per_job(self, max_nodes_per_job):
+        """Sets the max_nodes_per_job of this ClusterNodeType.
+
+
+        :param max_nodes_per_job: The max_nodes_per_job of this ClusterNodeType.  # noqa: E501
+        :type: int
+        """
+
+        self._max_nodes_per_job = max_nodes_per_job
 
     @property
     def cluster_id(self):

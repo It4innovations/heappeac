@@ -35,6 +35,18 @@ session_code = json.loads(r.data)
 print(f"Session code: {session_code}")
 
 
+print("\nFetching HEAppE version info...")
+lver_body = {
+    "_preload_content": False,
+    "SessionCode": session_code
+}
+
+manEndpoint = hp.ManagementApi(api_instance)
+r= manEndpoint.heappe_management_version_information_get(**lver_body)
+r_data = json.loads(r.data)
+print(json.dumps(r_data, indent = 3))
+
+
 print("\nFetching cluster info...")
 lac_body = {
     "_preload_content": False

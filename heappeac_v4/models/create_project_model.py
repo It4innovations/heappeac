@@ -34,7 +34,9 @@ class CreateProjectModel(object):
         'accounting_string': 'str',
         'start_date': 'datetime',
         'end_date': 'datetime',
-        'usage_type': 'UsageTypeExt'
+        'usage_type': 'UsageTypeExt',
+        'use_accounting_string_for_scheduler': 'bool',
+        'pi_email': 'str'
     }
 
     attribute_map = {
@@ -44,10 +46,12 @@ class CreateProjectModel(object):
         'accounting_string': 'AccountingString',
         'start_date': 'StartDate',
         'end_date': 'EndDate',
-        'usage_type': 'UsageType'
+        'usage_type': 'UsageType',
+        'use_accounting_string_for_scheduler': 'UseAccountingStringForScheduler',
+        'pi_email': 'PIEmail'
     }
 
-    def __init__(self, session_code=None, name=None, description=None, accounting_string=None, start_date=None, end_date=None, usage_type=None):  # noqa: E501
+    def __init__(self, session_code=None, name=None, description=None, accounting_string=None, start_date=None, end_date=None, usage_type=None, use_accounting_string_for_scheduler=None, pi_email=None):  # noqa: E501
         """CreateProjectModel - a model defined in Swagger"""  # noqa: E501
         self._session_code = None
         self._name = None
@@ -56,6 +60,8 @@ class CreateProjectModel(object):
         self._start_date = None
         self._end_date = None
         self._usage_type = None
+        self._use_accounting_string_for_scheduler = None
+        self._pi_email = None
         self.discriminator = None
         if session_code is not None:
             self.session_code = session_code
@@ -71,6 +77,10 @@ class CreateProjectModel(object):
             self.end_date = end_date
         if usage_type is not None:
             self.usage_type = usage_type
+        if use_accounting_string_for_scheduler is not None:
+            self.use_accounting_string_for_scheduler = use_accounting_string_for_scheduler
+        if pi_email is not None:
+            self.pi_email = pi_email
 
     @property
     def session_code(self):
@@ -218,6 +228,48 @@ class CreateProjectModel(object):
         """
 
         self._usage_type = usage_type
+
+    @property
+    def use_accounting_string_for_scheduler(self):
+        """Gets the use_accounting_string_for_scheduler of this CreateProjectModel.  # noqa: E501
+
+
+        :return: The use_accounting_string_for_scheduler of this CreateProjectModel.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_accounting_string_for_scheduler
+
+    @use_accounting_string_for_scheduler.setter
+    def use_accounting_string_for_scheduler(self, use_accounting_string_for_scheduler):
+        """Sets the use_accounting_string_for_scheduler of this CreateProjectModel.
+
+
+        :param use_accounting_string_for_scheduler: The use_accounting_string_for_scheduler of this CreateProjectModel.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_accounting_string_for_scheduler = use_accounting_string_for_scheduler
+
+    @property
+    def pi_email(self):
+        """Gets the pi_email of this CreateProjectModel.  # noqa: E501
+
+
+        :return: The pi_email of this CreateProjectModel.  # noqa: E501
+        :rtype: str
+        """
+        return self._pi_email
+
+    @pi_email.setter
+    def pi_email(self, pi_email):
+        """Sets the pi_email of this CreateProjectModel.
+
+
+        :param pi_email: The pi_email of this CreateProjectModel.  # noqa: E501
+        :type: str
+        """
+
+        self._pi_email = pi_email
 
     def to_dict(self):
         """Returns the model properties as a dict"""

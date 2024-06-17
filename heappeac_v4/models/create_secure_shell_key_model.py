@@ -29,31 +29,26 @@ class CreateSecureShellKeyModel(object):
     """
     swagger_types = {
         'session_code': 'str',
-        'username': 'str',
-        'password': 'str',
+        'credentials': 'list[SshKeyUserCredentialsModel]',
         'project_id': 'int'
     }
 
     attribute_map = {
         'session_code': 'SessionCode',
-        'username': 'Username',
-        'password': 'Password',
+        'credentials': 'Credentials',
         'project_id': 'ProjectId'
     }
 
-    def __init__(self, session_code=None, username=None, password=None, project_id=None):  # noqa: E501
+    def __init__(self, session_code=None, credentials=None, project_id=None):  # noqa: E501
         """CreateSecureShellKeyModel - a model defined in Swagger"""  # noqa: E501
         self._session_code = None
-        self._username = None
-        self._password = None
+        self._credentials = None
         self._project_id = None
         self.discriminator = None
         if session_code is not None:
             self.session_code = session_code
-        if username is not None:
-            self.username = username
-        if password is not None:
-            self.password = password
+        if credentials is not None:
+            self.credentials = credentials
         if project_id is not None:
             self.project_id = project_id
 
@@ -79,46 +74,25 @@ class CreateSecureShellKeyModel(object):
         self._session_code = session_code
 
     @property
-    def username(self):
-        """Gets the username of this CreateSecureShellKeyModel.  # noqa: E501
+    def credentials(self):
+        """Gets the credentials of this CreateSecureShellKeyModel.  # noqa: E501
 
 
-        :return: The username of this CreateSecureShellKeyModel.  # noqa: E501
-        :rtype: str
+        :return: The credentials of this CreateSecureShellKeyModel.  # noqa: E501
+        :rtype: list[SshKeyUserCredentialsModel]
         """
-        return self._username
+        return self._credentials
 
-    @username.setter
-    def username(self, username):
-        """Sets the username of this CreateSecureShellKeyModel.
-
-
-        :param username: The username of this CreateSecureShellKeyModel.  # noqa: E501
-        :type: str
-        """
-
-        self._username = username
-
-    @property
-    def password(self):
-        """Gets the password of this CreateSecureShellKeyModel.  # noqa: E501
+    @credentials.setter
+    def credentials(self, credentials):
+        """Sets the credentials of this CreateSecureShellKeyModel.
 
 
-        :return: The password of this CreateSecureShellKeyModel.  # noqa: E501
-        :rtype: str
-        """
-        return self._password
-
-    @password.setter
-    def password(self, password):
-        """Sets the password of this CreateSecureShellKeyModel.
-
-
-        :param password: The password of this CreateSecureShellKeyModel.  # noqa: E501
-        :type: str
+        :param credentials: The credentials of this CreateSecureShellKeyModel.  # noqa: E501
+        :type: list[SshKeyUserCredentialsModel]
         """
 
-        self._password = password
+        self._credentials = credentials
 
     @property
     def project_id(self):

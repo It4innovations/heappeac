@@ -37,9 +37,9 @@ class AdaptorUser(object):
         'deleted': 'bool',
         'created_at': 'datetime',
         'modified_at': 'datetime',
+        'user_type': 'AdaptorUserType',
         'adaptor_user_user_group_roles': 'list[AdaptorUserUserGroupRole]',
-        'groups': 'list[AdaptorUserGroup]',
-        'roles': 'list[AdaptorUserRole]'
+        'groups': 'list[AdaptorUserGroup]'
     }
 
     attribute_map = {
@@ -52,12 +52,12 @@ class AdaptorUser(object):
         'deleted': 'Deleted',
         'created_at': 'CreatedAt',
         'modified_at': 'ModifiedAt',
+        'user_type': 'UserType',
         'adaptor_user_user_group_roles': 'AdaptorUserUserGroupRoles',
-        'groups': 'Groups',
-        'roles': 'Roles'
+        'groups': 'Groups'
     }
 
-    def __init__(self, id=None, username=None, password=None, public_key=None, email=None, synchronize=None, deleted=None, created_at=None, modified_at=None, adaptor_user_user_group_roles=None, groups=None, roles=None):  # noqa: E501
+    def __init__(self, id=None, username=None, password=None, public_key=None, email=None, synchronize=None, deleted=None, created_at=None, modified_at=None, user_type=None, adaptor_user_user_group_roles=None, groups=None):  # noqa: E501
         """AdaptorUser - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._username = None
@@ -68,9 +68,9 @@ class AdaptorUser(object):
         self._deleted = None
         self._created_at = None
         self._modified_at = None
+        self._user_type = None
         self._adaptor_user_user_group_roles = None
         self._groups = None
-        self._roles = None
         self.discriminator = None
         if id is not None:
             self.id = id
@@ -89,12 +89,11 @@ class AdaptorUser(object):
             self.created_at = created_at
         if modified_at is not None:
             self.modified_at = modified_at
+        self.user_type = user_type
         if adaptor_user_user_group_roles is not None:
             self.adaptor_user_user_group_roles = adaptor_user_user_group_roles
         if groups is not None:
             self.groups = groups
-        if roles is not None:
-            self.roles = roles
 
     @property
     def id(self):
@@ -288,6 +287,29 @@ class AdaptorUser(object):
         self._modified_at = modified_at
 
     @property
+    def user_type(self):
+        """Gets the user_type of this AdaptorUser.  # noqa: E501
+
+
+        :return: The user_type of this AdaptorUser.  # noqa: E501
+        :rtype: AdaptorUserType
+        """
+        return self._user_type
+
+    @user_type.setter
+    def user_type(self, user_type):
+        """Sets the user_type of this AdaptorUser.
+
+
+        :param user_type: The user_type of this AdaptorUser.  # noqa: E501
+        :type: AdaptorUserType
+        """
+        if user_type is None:
+            raise ValueError("Invalid value for `user_type`, must not be `None`")  # noqa: E501
+
+        self._user_type = user_type
+
+    @property
     def adaptor_user_user_group_roles(self):
         """Gets the adaptor_user_user_group_roles of this AdaptorUser.  # noqa: E501
 
@@ -328,27 +350,6 @@ class AdaptorUser(object):
         """
 
         self._groups = groups
-
-    @property
-    def roles(self):
-        """Gets the roles of this AdaptorUser.  # noqa: E501
-
-
-        :return: The roles of this AdaptorUser.  # noqa: E501
-        :rtype: list[AdaptorUserRole]
-        """
-        return self._roles
-
-    @roles.setter
-    def roles(self, roles):
-        """Sets the roles of this AdaptorUser.
-
-
-        :param roles: The roles of this AdaptorUser.  # noqa: E501
-        :type: list[AdaptorUserRole]
-        """
-
-        self._roles = roles
 
     def to_dict(self):
         """Returns the model properties as a dict"""
